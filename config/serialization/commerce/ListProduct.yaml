@@ -1,0 +1,8 @@
+App\Entity\Commerce\ListProduct:
+  attributes:
+    id:
+      groups: ['read:product', 'list:product']
+    name:
+      groups: ['read:product', 'list:product']
+    type:
+      groups: ['read:product', 'list:product']

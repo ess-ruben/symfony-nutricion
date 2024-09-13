@@ -1,0 +1,12 @@
+App\Entity\Cms\PostCategory:
+  attributes:
+    id:
+      groups: ['read:cms:category', 'list:cms:category']
+    name:
+      groups: ['read:cms:category', 'list:cms:category']
+    description:
+      groups: ['read:cms:category', 'list:cms:category']
+    icon:
+      groups: ['read:cms:category', 'list:cms:category']
+    type:
+      groups: ['read:cms:category', 'list:cms:category']

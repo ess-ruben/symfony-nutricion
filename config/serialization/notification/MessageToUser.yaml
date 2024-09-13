@@ -1,0 +1,12 @@
+App\Entity\Notification\MessageToUser:
+  attributes:
+    id:
+      groups: ['read:message:user', 'list:message:user']
+    isReaded:
+      groups: ['read:message:user', 'write:message:user', 'list:message:user']
+    createAt:
+      groups: ['read:message:user', 'list:message:user']
+    isActive:
+      groups: ['read:message:user', 'write:message:user', 'list:message:user']
+    message:
+      groups: ['read:message:user', 'list:message:user']

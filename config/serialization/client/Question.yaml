@@ -1,0 +1,8 @@
+App\Entity\Client\Question:
+  attributes:
+    id:
+      groups: ['read:question', 'list:question', 'read:answer', 'list:answer']
+    title:
+      groups: ['read:question', 'list:question', 'read:answer', 'list:answer', 'write:question']
+    business:
+      groups: ['write:question']

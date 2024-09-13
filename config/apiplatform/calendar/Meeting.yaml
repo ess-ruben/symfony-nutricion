@@ -1,0 +1,10 @@
+App\Entity\Calendar\Meeting:
+  collectionOperations:
+    get:
+      normalization_context:
+        groups: ['list:meeting']
+      filters: ['timeAt.order_filter','timeAt.date_filter','status.search_filter','dateAt.date_filter','dateAt.order_filter']
+  itemOperations:
+    get:
+      normalization_context:
+        groups: ['read:meeting']

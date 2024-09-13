@@ -1,0 +1,6 @@
+App\Entity\Client\Profile:
+  attributes:
+    id:
+      groups: ['read:profile', 'list:profile']
+    avatar:
+      groups: ['read:profile', 'list:profile','write:profile']

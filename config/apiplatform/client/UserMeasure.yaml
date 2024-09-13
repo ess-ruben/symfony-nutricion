@@ -1,0 +1,11 @@
+App\Entity\Client\UserMeasure:
+  security: is_granted("ROLE_USER")
+  collectionOperations:
+    get:
+      filters: ['timeAt.order_filter','timeAt.date_filter']
+      normalization_context:
+        groups: ['list:measure']
+  itemOperations:
+    get:
+      normalization_context:
+        groups: ['read:measure']

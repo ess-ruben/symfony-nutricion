@@ -1,0 +1,49 @@
+App\Entity\Client\UserMeasure:
+  attributes:
+    id:
+      groups: ['read:measure', 'list:measure']
+    bicipital:
+      groups: ['read:measure', 'list:measure']
+    tricipital:
+      groups: ['read:measure', 'list:measure']
+    subscapularis:
+      groups: ['read:measure', 'list:measure']
+    suprailiac:
+      groups: ['read:measure', 'list:measure']
+    abdominal:
+      groups: ['read:measure', 'list:measure']
+    frontThigh:
+      groups: ['read:measure', 'list:measure']
+    medialCalf:
+      groups: ['read:measure', 'list:measure']
+    waist:
+      groups: ['read:measure', 'list:measure']
+    hip:
+      groups: ['read:measure', 'list:measure']
+    thigh:
+      groups: ['read:measure', 'list:measure']
+    calf:
+      groups: ['read:measure', 'list:measure']
+    contractedArm:
+      groups: ['read:measure', 'list:measure']
+    relaxedArm:
+      groups: ['read:measure', 'list:measure']
+    iliacCrest:
+      groups: ['read:measure', 'list:measure']
+    createAt:
+      groups: ['read:measure', 'list:measure']
+    fileName:
+      groups: ['read:measure', 'list:measure']
+    fileSize:
+      groups: ['read:measure', 'list:measure']
+    contentUrl:
+      groups: ['read:measure', 'list:measure']
+    height:
+      groups: ['read:measure', 'list:measure']
+    weight:
+      groups: ['read:measure', 'list:measure']
+    gender:
+      groups: ['read:measure', 'list:measure']
+    years:
+      groups: ['read:measure', 'list:measure']
+    

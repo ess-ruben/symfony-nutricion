@@ -1,0 +1,14 @@
+App\Entity\Notification\Message:
+  attributes:
+    id:
+      groups: ['read:message:user', 'list:message:user']
+    title:
+      groups: ['read:message:user', 'list:message:user']
+    description:
+      groups: ['read:message:user', 'list:message:user']
+    name:
+      groups: ['read:message:user', 'list:message:user']
+    type:
+      groups: ['read:message:user', 'list:message:user']
+    entityId:
+      groups: ['read:message:user', 'list:message:user']

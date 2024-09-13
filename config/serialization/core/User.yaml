@@ -1,0 +1,20 @@
+App\Entity\Core\User:
+  attributes:
+    id:
+      groups: ['read:user', 'list:user']
+    name:
+      groups: ['write:user', 'read:user', 'list:user']
+    surnames:
+      groups: ['write:user', 'read:user', 'list:user']
+    email:
+      groups: ['write:user', 'read:user', 'list:user']
+    plainPassword:
+      groups: ['write:user']
+    password: ~
+    tall:
+      groups: ['read:user', 'list:user']
+    gender:
+      groups: ['read:user', 'list:user']
+    roles:
+      groups: ['read:user', 'list:user']
+    active: ~

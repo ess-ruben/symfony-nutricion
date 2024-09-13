@@ -1,0 +1,18 @@
+App\Entity\Client\IssueResponse:
+  collectionOperations:
+    get:
+      filters: ['timeAt.order_filter','timeAt.date_filter']
+      security: is_granted("ROLE_ADMIN")
+      normalization_context:
+        groups: ['list:issue:response']
+    post:
+      normalization_context:
+        groups: ['read:issue:response']
+      denormalization_context:
+        groups: ['write:issue:response']
+      security: is_granted("ROLE_USER")
+  itemOperations:
+    get:
+      security: is_granted("ROLE_ADMIN") or is_granted("ROLE_USER") and object == user
+      normalization_context:
+        groups: ['read:issue:response']

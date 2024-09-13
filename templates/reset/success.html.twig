@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restablecer contraseña{% endblock %}
+{% block stylesheets %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio realizado</title>
+    <!-- Enlace a la librería de Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block body %}
+<style>
+    .btn-send {
+        background-color: #161a39;
+        color: white;
+    }
+
+    :hover.btn-send {
+        background-color: black;
+        color: white;
+    }
+
+    .footer {
+        font-size: .7rem!important; 
+        font-weight: 400!important;
+    }
+</style>
+<div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="logo text-center">
+                    <img style="width: 29%;max-width: 168.2px;" src="{{ absolute_url(asset('email/logo.png')) }}" alt="logo Abel">
+                </div>
+                <div class="card mt-3">
+                    <div style="background-color: #161a39; color: #ffffff;" class="card-header text-center">
+                        <img class="m-3" style="max-width: 64px;" src="{{ absolute_url(asset('email/check.png')) }}" alt="cambio realizado">
+                        <h3 style="font-weight: 400;">Contraseña cambiada!</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-center p-2">Se ha realizado el cambio de contraseña de forma correcta. Ya puedes conectarte!</p>
+                    </div>
+                </div>
+                <div style="background-color: #161a39; color: white;" class="p-3 col-12 d-flex">
+                    <div class="col-md-6">
+                        <div class="py-1">Contacto</div>
+                        <div class="footer">+34 665695831</div>
+                        <div class="footer">correo@gmail.com</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer py-1">
+                            <a href="https://www.instagram.com/404" title="Instagram" target="_blank">
+                                <img src="{{ absolute_url(asset('email/instagram.png')) }}" alt="Instagram" title="Instagram" width="32">
+                            </a>
+                        </div>
+                        <div class="footer py-2">2024 ©  Todos los derechos reservados</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

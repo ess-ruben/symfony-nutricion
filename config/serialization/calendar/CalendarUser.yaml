@@ -1,0 +1,12 @@
+App\Entity\Calendar\CalendarUser:
+  attributes:
+    id:
+      groups: ['read:calendar:user', 'list:calendar:user']
+    createAt:
+      groups: ['read:calendar:user', 'list:calendar:user']
+    fileName:
+      groups: ['read:calendar:user', 'list:calendar:user']
+    fileSize:
+      groups: ['read:calendar:user', 'list:calendar:user']
+    contentUrl:
+      groups: ['read:calendar:user', 'list:calendar:user']

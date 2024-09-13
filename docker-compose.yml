@@ -1,0 +1,20 @@
+version: '3'
+services:
+  web:
+    build: .
+    networks:
+      - mynet
+    environment:
+      SYMFONY_ENV: dev
+    #    links:
+    #         - php
+    #        - sonarqube
+    #        - rabbitmq
+    volumes:
+      - .:/var/www/html
+    ports:
+      - 8080:8080
+
+networks:
+  mynet:
+    driver: bridge

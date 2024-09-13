@@ -1,0 +1,18 @@
+api_platform:
+  eager_loading:
+    max_joins: 100
+
+  defaults:
+    pagination_client_items_per_page: true
+  mapping:
+    paths:
+      - '%kernel.project_dir%/config/apiplatform'
+      - '%kernel.project_dir%/src/Entity'
+  patch_formats:
+    json: ['application/merge-patch+json']
+  swagger:
+    versions: [3]
+    api_keys:
+      apiKey:
+        name: Authorization
+        type: header

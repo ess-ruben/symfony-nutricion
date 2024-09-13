@@ -1,0 +1,112 @@
+{% if isClient is not defined %}
+    {% set isClient = true %}
+{% endif %}
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            {{ form_label(address.name,'Nombre') }}
+            {{ form_widget(address.name, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="col-6 {{isClient ? '' : 'd-none'}}">
+        <div class="form-group ">
+            {{ form_label(address.surname,'Apellidos') }}
+            {{ form_widget(address.surname, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="form-group ">
+            {{ form_label(address.email,'Email') }}
+            {{ form_widget(address.email, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="form-group ">
+            {{ form_label(address.phone,'Movil') }}
+            {{ form_widget(address.phone, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="col-6 {{isClient ? '' : 'd-none'}}">
+        <div class="form-group ">
+            {{ form_label(address.nif,'Dni') }}
+            {{ form_widget(address.nif, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="form-group ">
+            {{ form_label(address.city,'Ciudad') }}
+            {{ form_widget(address.city, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="form-group">
+            {{ form_label(address.zip,'Codigo postal') }}
+            {{ form_widget(address.zip, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="form-group">
+            {{ form_label(address.street,'Calle') }}
+            {{ form_widget(address.street, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    
+    <div class="col-6">
+        <div class="form-group">
+            {{ form_label(address.number,'Numero') }}
+            {{ form_widget(address.number, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="col-6 {{isClient ? 'd-none' : ''}}">
+        <div class="form-group">
+            {{ form_label(address.lat,'Latitud geografica') }}
+            {{ form_widget(address.lat, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="col-6 {{isClient ? 'd-none' : ''}}">
+        <div class="form-group">
+            {{ form_label(address.lon,'Longitud geografica') }}
+            {{ form_widget(address.lon, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="form-group">
+            {{ form_label(address.country) }}
+            {{ form_widget(address.country) }}
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            {{ form_label(address.state) }}
+            {{ form_widget(address.state) }}
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $(".countrySelect").change(function() {
+      // Obtén el valor seleccionado
+      let idCountry = $(this).val();
+      let id = $(this).attr("data-id");
+      
+      let container = $('.'+id);
+      container.find('[data-country]').hide();
+      let options = container.find('[data-country="'+idCountry+'"]');
+      options.show();
+      container.val(options.first().val());
+    })
+    $('.countrySelect').trigger('change');
+  });
+</script>

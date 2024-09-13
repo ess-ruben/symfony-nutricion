@@ -1,0 +1,24 @@
+App\Entity\Core\User:
+  attributes:
+    denormalization_context:
+      groups: ['write:user']
+  collectionOperations:
+    get:
+      normalization_context:
+        groups: ['list:user']
+      security: is_granted("ROLE_BUSINESS_WORKER")
+    post: ~
+  itemOperations:
+    me:
+      method: 'GET'
+      route_name: 'api_me'
+      defaults:
+        color: 'brown'
+    get:
+      normalization_context:
+        groups: ['read:user']
+      security: is_granted("ROLE_BUSINESS_WORKER") or is_granted("ROLE_USER") and object == user
+    put:
+      security: is_granted("ROLE_BUSINESS_WORKER") or is_granted("ROLE_USER") and object == user
+    delete:
+      security: is_granted("ROLE_ADMIN")

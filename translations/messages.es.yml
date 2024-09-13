@@ -1,0 +1,244 @@
+#Actions labels
+actions.edit: Editar
+actions.show: Ver
+actions.delete: Eliminar
+actions.new: Añadir
+actions.search: Buscar
+actions.exit: Salir
+actions.cancel: Cancelar
+actions.invoice: Generar Factura
+actions.export: Exportar csv
+actions.quote: Generar Albarán
+form.label.delete: Eliminar
+
+#Standar fields labels
+id: Id
+name: Nombre
+type: Tipo
+types: Tipos
+user: Usuario
+customer: Cliente
+video: Vídeo
+audio: Audio
+title: Título
+image: Imagen
+description: Descripción
+link: Enlace
+username: Usuario
+surnames: Apellidos
+email: Correo
+lastLogin: Último inicio de sesión
+createdDate: Fecha de creación
+updatedDate: Última actualización
+roles: Permisos
+needShippingInfo: Necesita datos <br> de entrega
+enabled: Activado
+disabled: Desactivado
+profile: Perfil
+telephone: Telefono
+cellphone: Móvil
+address: Dirección
+birthdate: Aniversario
+nationality: Nacionalidad
+age: Edad
+nif: DNI
+system: Sistema
+price: Precio
+status: Estado
+amount: Importe
+percent: Porcentage
+absolute: Absoluto
+value: Valor
+active: Activo
+code: Código
+devices: Dispositivos
+device: Dispositivo
+postalCode: Código Postal
+state: Comunidad Autónoma
+province: Provincia
+iso: Iso
+zip: Código Postal
+latitude: Latitud
+longitude: Longitud
+number: Número
+country: País
+civilStatus: Estado Civil
+phone: Teléfono
+birthDate: Fecha de nacimiento
+city: Ciudad
+street: Calle
+model: Modelo
+platform: Plataforma
+manufacturer: Fabricante
+lang: Idioma
+version: Versión
+sort: Orden
+products: Productos
+categories: Categorias
+translatables: Campos traducibles
+attributes: Atributos
+attribute: Atributo
+category.parent: Categoria padre
+category.childs: SubCategorias
+product: Producto
+welcome: ¡Bienvenido!
+welcome_var: ¡Bienvenido %name%!
+attribute.options: Valores
+attributeValue: Valor atributo
+attributeValues: Valores atributos
+prices: Precios
+pricelist: Listado de precios
+startDate: Fecha de inicio
+endDate: Fecha de fin
+main: Principal
+show_main: Mostrar en el inicio
+campaigns: Campañas
+campaign: Campaña
+vat: IVA
+gallery: Galeria
+base: Base
+color: Color
+text: Texto
+Browse: Examinar
+rankingAlias: Nombre ranking
+discount: Descuento
+quantity: Cantidad
+paymentMethod: Método de pago
+shippingMethod: Metodo de envío
+shippings: Envíos
+shipping: Envío
+weight: Peso
+currency: Moneda
+offer: Oferta
+list: Lista
+listName: Nombre de la lista
+saveUp: Ahorrado
+total: Total
+account: Cuenta Bancaria
+order: Pedido
+shows_on: Mostrar en
+cart: Carrito
+filter: Filtros
+default_selected: Seleccionado por defecto
+shippingZones: Zonas de envios
+billingAddress: Dirección de facturación
+savedAddress: Direcciones guardadas
+saved: Ahorrado
+stores: Tiendas
+sales: Ventas
+class: Clase
+web: Página web
+admin_dashboard: Panel de administración
+app: Aplicación
+url: Url
+shop.pick: Recogida en tienda
+place_google: Google Place
+notify: Notificar
+position: Posición
+profilePhoto: Foto de perfil
+paginator.previous: Página anterior
+paginator.next: Página siguiente
+orders: Pedidos
+users: Usuarios
+config: Configuración
+phone_abbr: Tel.
+send: Enviar
+select_file: Selecciona el archivo
+importer: Importador
+principal: Principal
+invoices: Facturas
+dump: Mostrar
+importer.force: Eliminar elementos anteriores
+shops: Tiendas
+feature: Caracteristicas
+password: Contraseña
+notifications: Notificaciones
+totalOrders: Número de pedidos
+sumSales: Suma de ventas
+pickAll: Elegir todos
+mail: Correo
+mails: Correos
+topics: Temas
+params: Parámetros
+push: Push
+entity: Entidad
+newsletter: Newsletter
+offers: Ofertas
+business: Comercio
+businesses: Comercios
+businessGroup: Asociación
+businessGroups: Asociaciones
+minPrice: Precio Mínimo
+maxPrice: Precio Máximo
+uses: Usos
+maxUses: Máximos usos
+groups: Grupos
+objectives: Objetivos
+cms: Cms
+cmsCategories: Categorias de Cms
+cmsCategory: Categoria de Cms
+category: Categoria
+dash: Dashboard
+subject: Asunto
+body: Cuerpo
+spotlight: Destacado
+home: Portada
+about: Sobre nosotros
+template: Plantilla
+coupon: Cupón
+blog: Blog
+featured: Destacado
+show_marketplace: Ver en marketplace
+completed: Completado
+objective: Objetivo
+paymentMethods: Métodos de Pago
+shippingMethods: Métodos de envío
+close: cerrar
+apply: Aplicar
+percentage: Porcentage
+subtotal: Subtotal
+marketplace: Marketplace
+download: Descargar
+download_pdf: Descargar PDF
+download_csv: Descargar CSV
+issue: Denuncia
+valoration: Valoración
+reason: Motivo
+
+#helps
+multiple_help: Para seleccionar varios manten pulsado control
+
+#mime types help
+image.formats: 'Formatos soportados: jpg jpeg png webp'
+video.formats: 'Formatos soportados: mp4 mov avi webm'
+audio.formats: 'Formatos soportados: mp4 audio mp3'
+
+wrong.formats: Formato incorrecto
+
+#Menu Labels
+api-platform: Apis (Dev)
+# ROLES
+ROLE_USER: Usuario
+ROLE_SUPER_ADMIN: Super Administrador
+ROLE_ADMIN: Administrador
+ROLE_EMPLOYEE: Empleado
+
+password_resset: ¡Contraseña restablecida!
+login.error: Usuario y/o Contraseña incorrectos
+vich_uploader.link.download: Link de descarga
+
+#email
+email.subject.remeberPass: 'Restablecer contraseña'
+
+#notify
+notify.title.MEETING: 'Nueva cita'
+notify.title.POST: 'Nueva pregunta frecuente'
+notify.title.POSTEDUCATION: 'Nuevo post Educación nutricional'
+notify.title.POSTRECIPES: 'Nueva receta'
+notify.title.ISSUERESPONSE: 'Tienes un mensage nuevo'
+
+notify.description.MEETING: ''
+notify.description.POST: ''
+notify.description.POSTEDUCATION: ''
+notify.description.POSTRECIPES: ''
+notify.description.ISSUERESPONSE: ''

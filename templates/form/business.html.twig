@@ -1,0 +1,4 @@
+{% if business.address is defined %}
+    {{ include('form/address.html.twig', {address: business.address, isClient: false}) }}
+    <br>
+{% endif %}

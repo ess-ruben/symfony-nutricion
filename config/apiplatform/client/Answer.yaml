@@ -1,0 +1,16 @@
+App\Entity\Client\Answer:
+  security: is_granted("ROLE_USER")
+  attributes:
+    denormalization_context:
+      groups: ['write:answer']
+  collectionOperations:
+    get:
+      normalization_context:
+        groups: ['list:answer']
+      filters: ['question.search_filter']
+    post: ~
+  itemOperations:
+    get:
+      normalization_context:
+        groups: ['read:answer']
+    put: ~

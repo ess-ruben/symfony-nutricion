@@ -1,0 +1,79 @@
+{% extends '@EasyAdmin/crud/detail.html.twig' %}
+{% set issue = entity.getInstance() %}
+{% block content_title %}
+    {%- apply spaceless -%}
+        {% set custom_page_title = 'Incidencia ' %}
+        {{ custom_page_title is null
+            ? ea.crud.defaultPageTitle(null, null, ea.i18n.translationParameters)|trans|raw
+            : custom_page_title|trans|raw }} {{issue.createAt|date('Y-m-d H:i:s')}}
+    {%- endapply -%}
+{% endblock %}
+{% block main %}
+    <div class="form-panel">
+        <div class="form-panel-body  show">
+            <dl class="datalist">
+                <div class="data-row field-text">
+                    <dt>
+                        Usuario
+                    </dt>
+                    <dd>
+                        <span title="{{issue.getTitle()}}">{{issue.user.name}}</span>
+                    </dd>
+                </div>
+                <div class="data-row field-text">
+                    <dt>
+                        Asunto
+                    </dt>
+                    <dd>
+                        <span title="{{issue.getTitle()}}">{{issue.getTitle()}}</span>
+                    </dd>
+                </div>
+                <div class="data-row field-text">
+                    <dt>
+                        Contenido
+                    </dt>
+                    <dd>
+                        <span>{{issue.getBody() | raw}}</span>
+                    </dd>
+                </div>
+                <div class="data-row field-boolean has-switch">
+                    <dt>
+                        Abierto
+                    </dt>
+                    <dd>
+                        <span class="badge badge-boolean-{{issue.isOpen ? 'true' : 'false'}}">
+                            {{issue.isOpen ? 'Si' : 'No'}}
+                        </span>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+    <div class="container">
+        {% for response in issue.getIssueResponsesSort() %}
+            {% set isClient = response.user.isClient() %}
+            <div class="row">
+                <div class="col-6 mt-4 {{isClient ? '' : 'offset-6'}}">
+                    <div class="card" style="background-color: #{{isClient ? 'f8f9fa' : 'B6FFDC'}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ response.response }}</h5>
+                            <p class="card-subtitle mb-2 text-muted">Enviado por: {{ response.user.name }}</p>
+                            <p class="card-text">Fecha: {{ response.createAt|date('Y-m-d H:i:s') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="container mt-5">
+        <form method="post" class="input-group mb-3">
+            <input name="response" type="text" class="form-control" placeholder="Escribe un mensaje..." aria-label="Escribe un mensaje..." aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit" style="height: 33px;">
+                    <i class="fa fa-paper-plane-o"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    
+{% endblock %}

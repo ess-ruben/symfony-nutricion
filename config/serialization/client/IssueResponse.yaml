@@ -1,0 +1,8 @@
+App\Entity\Client\IssueResponse:
+  attributes:
+    id:
+      groups: ['read:issue','read:issue:response', 'list:issue:response']
+    response:
+      groups: ['read:issue','read:issue:response', 'list:issue:response', 'write:issue:response']
+    issue:
+      groups: ['write:issue:response']

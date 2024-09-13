@@ -1,0 +1,8 @@
+twig:
+    globals:
+        media_file: '%app.path.media_file%'
+    default_path: '%kernel.project_dir%/templates'
+
+when@test:
+    twig:
+        strict_variables: true

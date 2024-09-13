@@ -1,0 +1,17 @@
+App\Entity\Client\Question:
+  security: is_granted("ROLE_USER")
+  attributes:
+    denormalization_context:
+      groups: ['write:question']
+  collectionOperations:
+    get:
+      normalization_context:
+        groups: ['list:question']
+    post:
+      normalization_context:
+        groups: ['read:answer']
+      security: is_granted("ROLE_ADMIN")
+  itemOperations:
+    get:
+      normalization_context:
+        groups: ['read:answer']

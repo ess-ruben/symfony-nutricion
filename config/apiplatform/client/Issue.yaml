@@ -1,0 +1,18 @@
+App\Entity\Client\Issue:
+  security: is_granted("ROLE_USER")
+  collectionOperations:
+    get:
+      filters: ['timeAt.order_filter','timeAt.date_filter']
+      normalization_context:
+        groups: ['list:issue']
+    post:
+      normalization_context:
+        groups: ['read:issue']
+      denormalization_context:
+        groups: ['write:issue']
+      security: is_granted("ROLE_USER")
+  itemOperations:
+    get:
+      security: is_granted("ROLE_USER")
+      normalization_context:
+        groups: ['read:issue']

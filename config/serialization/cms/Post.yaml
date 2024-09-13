@@ -1,0 +1,12 @@
+App\Entity\Cms\Post:
+  attributes:
+    id:
+      groups: ['read:cms:post', 'list:cms:post']
+    title:
+      groups: ['read:cms:post', 'list:cms:post']
+    body:
+      groups: ['read:cms:post', 'list:cms:post']
+    createAt:
+      groups: ['read:cms:post', 'list:cms:post']
+    discr:
+      groups: ['read:cms:post', 'list:cms:post']

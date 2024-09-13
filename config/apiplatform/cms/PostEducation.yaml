@@ -1,0 +1,11 @@
+App\Entity\Cms\PostEducation:
+  security: is_granted("ROLE_USER")
+  collectionOperations:
+    get:
+      normalization_context:
+        groups: ['list:cms:post']
+      filters: ['timeAt.order_filter','timeAt.date_filter','category.search_filter','title.search_filter']
+  itemOperations:
+    get:
+      normalization_context:
+        groups: ['read:cms:post']

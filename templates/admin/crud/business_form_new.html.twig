@@ -1,0 +1,34 @@
+{% extends '@EasyAdmin/crud/new.html.twig' %}
+
+{% block main %}
+    {% block new_form %}
+        <form name="Business" method="post" class="ea-new-form" id="new-Business-form">
+            {{ form_start(new_form) }} 
+            <input type="hidden" name="referrer" value="/admin">
+            {{ include('form/business.html.twig', {business: new_form}) }}
+            <br>
+            <div class="row">
+                <div class="col-12">
+                    <h3><b>Info Extra</b></h3>
+                    <div class="form-group d-none">
+                        {{ form_label(new_form.name,'nombre') }}
+                        {{ form_widget(new_form.name, {'attr': {'class': 'form-control d-none'}}) }}
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        {{ form_label(new_form.title,'descripción breve') }}
+                        {{ form_widget(new_form.title, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        {{ form_label(new_form.description,'descripción') }}
+                        {{ form_widget(new_form.description, {'attr': {'class': 'form-control', 'rows': 5, 'cols': 40 }}) }}
+                    </div>
+                </div>
+            </div>
+            {{ form_end(new_form) }}
+        </form>
+    {% endblock new_form %}
+{% endblock %}

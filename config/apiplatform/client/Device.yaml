@@ -1,0 +1,15 @@
+App\Entity\Client\Device:
+  security: is_granted("ROLE_USER")
+  collectionOperations:
+    get:
+      normalization_context:
+        groups: ['list:device']
+    post:
+      normalization_context:
+        groups: ['read:device']
+      denormalization_context:
+        groups: ['write:device']
+  itemOperations:
+    get:
+      normalization_context:
+        groups: ['read:device']

@@ -1,0 +1,14 @@
+App\Entity\Client\Profile:
+  attributes:
+    denormalization_context:
+      groups: ['write:profile']
+  collectionOperations:
+    get:
+      normalization_context:
+        groups: ['list:profile']
+    post: ~
+  itemOperations:
+    get:
+      normalization_context:
+        groups: ['read:profile']
+    put: ~

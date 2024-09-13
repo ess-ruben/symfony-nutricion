@@ -1,0 +1,22 @@
+App\Entity\Cms\PostRecipes:
+  attributes:
+    id:
+      groups: ['read:cms:post', 'list:cms:post']
+    title:
+      groups: ['read:cms:post', 'list:cms:post']
+    body:
+      groups: ['read:cms:post', 'list:cms:post']
+    createAt:
+      groups: ['read:cms:post', 'list:cms:post']
+    discr:
+      groups: ['read:cms:post', 'list:cms:post']
+    fileName:
+      groups: ['read:cms:post', 'list:cms:post']
+    fileSize:
+      groups: ['read:cms:post', 'list:cms:post']
+    contentUrl:
+      groups: ['read:cms:post', 'list:cms:post']
+    kcal:
+      groups: ['read:cms:post', 'list:cms:post']
+    minutes:
+      groups: ['read:cms:post', 'list:cms:post']

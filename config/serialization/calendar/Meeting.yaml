@@ -1,0 +1,10 @@
+App\Entity\Calendar\Meeting:
+  attributes:
+    id:
+      groups: ['read:meeting', 'list:meeting']
+    dateAt:
+      groups: ['read:meeting', 'list:meeting']
+    status:
+      groups: ['read:meeting', 'list:meeting']
+    cancelReason:
+      groups: ['read:meeting', 'list:meeting']

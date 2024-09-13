@@ -1,0 +1,182 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+    app.path.media_file: /uploads/media/file
+    app.path.mediaobject_images: /uploads/media/object
+    app.environment: '%env(APP_ENV)%'
+
+services:
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  # makes classes in src/ available to be used as services
+  # this creates a service per class whose id is the fully-qualified class name
+  App\:
+    resource: '../src/'
+    exclude:
+      - '../src/DependencyInjection/'
+      - '../src/Entity/'
+      - '../src/Kernel.php'
+
+  App\Decorators\JwtDecorator:
+    decorates: 'api_platform.openapi.factory'
+    arguments: ['@.inner']
+
+  # filters api
+
+  listProduct.search_filter:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments: [ { listProduct.id: 'exact' , listProduct.type: 'exact' } ]
+    tags:  [ 'api_platform.filter' ]
+
+  category.search_filter:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments: [ { category.id: 'exact' , category.type: 'exact' } ]
+    tags:  [ 'api_platform.filter' ]
+
+  question.search_filter:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments: [ { question.id: 'exact'} ]
+    tags:  [ 'api_platform.filter' ]
+  
+  name.search_filter:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments: [ { name: 'ipartial' } ]
+    tags:  [ 'api_platform.filter' ]
+
+  title.search_filter:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments: [ { title: 'ipartial' } ]
+    tags:  [ 'api_platform.filter' ]
+
+  status.search_filter:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments: [ { status: 'exact' } ]
+    tags:  [ 'api_platform.filter' ]
+
+  timeAt.order_filter:
+    parent: 'api_platform.doctrine.orm.order_filter'
+    arguments:
+        $properties: { createAt: ~,updatedAt: ~}
+        $orderParameterName: order
+    tags:  [ 'api_platform.filter' ]
+
+  timeAt.date_filter:
+    parent: 'api_platform.doctrine.orm.date_filter'
+    arguments: [ { createAt: ~,updatedAt: ~ } ]
+    tags:  [ 'api_platform.filter' ]
+
+  dateAt.order_filter:
+    parent: 'api_platform.doctrine.orm.order_filter'
+    arguments:
+        $properties: { dateAt: ~}
+        $orderParameterName: order
+    tags:  [ 'api_platform.filter' ]
+
+  dateAt.date_filter:
+    parent: 'api_platform.doctrine.orm.date_filter'
+    arguments: [ { dateAt: ~ } ]
+    tags:  [ 'api_platform.filter' ]
+
+  active.boolean_filter:
+    parent: 'api_platform.doctrine.orm.boolean_filter'
+    arguments: [ { isActive: ~ } ]
+    tags:  [ 'api_platform.filter' ]
+
+  readed.boolean_filter:
+    parent: 'api_platform.doctrine.orm.boolean_filter'
+    arguments: [ { isReaded: ~ } ]
+    tags:  [ 'api_platform.filter' ]
+
+  # Command
+
+  App\Command\ExecuteOneTime\EcommerceCommand:
+    arguments:
+      $entityManager: '@doctrine.orm.default_entity_manager'
+
+  # EventListener
+
+  App\EventListener\TimeItemListener:
+    tags:
+        - { name: doctrine.event_listener, event: prePersist }
+        - { name: doctrine.event_listener, event: preUpdate }
+  
+  App\EventListener\UserItemListener:
+    tags:
+        - { name: doctrine.event_listener, event: prePersist }
+
+  App\EventListener\BusinessItemListener:
+    tags:
+        - { name: doctrine.event_listener, event: prePersist }
+  
+  App\EventListener\PostListener:
+    tags:
+        - { name: doctrine.event_listener, event: prePersist }
+  
+  App\EventListener\NotifyItemListener:
+    tags:
+        - { name: doctrine.event_listener, event: postPersist }
+
+  # Listeners
+
+  App\EntityListener\Core\UserListener:
+    tags:
+      - { name: doctrine.orm.entity_listener, lazy: true }
+
+  App\EntityListener\Core\BusinessListener:
+    tags:
+      - { name: doctrine.orm.entity_listener, lazy: true }
+
+  App\EntityListener\Client\UserMeasureListener:
+    tags:
+      - { name: doctrine.orm.entity_listener, lazy: true }
+
+  App\EntityListener\Client\ResetPasswordListener:
+    tags:
+      - { name: doctrine.orm.entity_listener, lazy: true }
+
+  App\EntityListener\Client\IssueResponseListener:
+    tags:
+      - { name: doctrine.orm.entity_listener, lazy: true }
+  
+  App\EntityListener\Payment\PaymentListener:
+    tags:
+      - { name: doctrine.orm.entity_listener, lazy: true }
+
+  App\EntityListener\Notification\MessageListener:
+    tags:
+      - { name: doctrine.orm.entity_listener, lazy: true }
+
+  App\EntityListener\Notification\MessageToUserListener:
+    tags:
+      - { name: doctrine.orm.entity_listener, lazy: true }
+
+  # Filter
+  on_request_listener:
+    class: App\EventListener\Kernel\OnRequestListener
+    arguments: ["@doctrine.orm.entity_manager", "@security.token_storage"]
+    tags:
+      -
+        name: kernel.event_listener
+        event: kernel.request
+        method: onKernelRequest
+
+  App\Filter\Sql\BusinessSqlFilter:
+    tags:
+      - { name: doctrine.orm.query_filter }
+  
+  App\Filter\Sql\UserSqlFilter:
+    tags:
+      - { name: doctrine.orm.query_filter }
+  
+  App\Filter\Sql\ActiveSqlFilter:
+    tags:
+      - { name: doctrine.orm.query_filter }
+
+  # add more service definitions when explicit configuration is needed
+  # please note that last definitions always *replace* previous ones

@@ -1,0 +1,18 @@
+App\Entity\Commerce\Product:
+  attributes:
+    id:
+      groups: ['read:product', 'list:product']
+    name:
+      groups: ['read:product', 'list:product']
+    listProduct:
+      groups: ['read:product', 'list:product']
+    kcal:
+      groups: ['read:product', 'list:product']
+    grams:
+      groups: ['read:product', 'list:product']
+    proteins:
+      groups: ['read:product', 'list:product']
+    hydrates:
+      groups: ['read:product', 'list:product']
+    fats:
+      groups: ['read:product', 'list:product']

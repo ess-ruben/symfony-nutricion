@@ -1,0 +1,16 @@
+App\Entity\Notification\MessageToUser:
+  security: is_granted("ROLE_USER")
+  collectionOperations:
+    get:
+      filters: ['timeAt.order_filter','timeAt.date_filter','active.boolean_filter','readed.boolean_filter']
+      normalization_context:
+        groups: ['list:message:user']
+  itemOperations:
+    get:
+      normalization_context:
+        groups: ['read:message:user']
+    put:
+      normalization_context:
+        groups: ['read:message:user']
+      denormalization_context:
+        groups: ['write:message:user']

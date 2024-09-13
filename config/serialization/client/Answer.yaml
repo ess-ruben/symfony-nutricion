@@ -1,0 +1,8 @@
+App\Entity\Client\Answer:
+  attributes:
+    id:
+      groups: ['read:answer', 'list:answer']
+    question:
+      groups: ['read:answer', 'list:answer','write:answer']
+    response:
+      groups: ['read:answer', 'list:answer','write:answer']

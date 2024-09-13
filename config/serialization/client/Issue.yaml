@@ -1,0 +1,10 @@
+App\Entity\Client\Issue:
+  attributes:
+    id:
+      groups: ['read:issue', 'list:issue']
+    title:
+      groups: ['read:issue', 'list:issue','write:issue']
+    body:
+      groups: ['read:issue', 'list:issue','write:issue']
+    issueResponsesSort:
+      groups: ['read:issue']
